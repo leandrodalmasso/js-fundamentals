@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiple promises</title>
+</head>
+<body>
+<script>
+  const beers = fetch('http://api.react.beer/v2/search?q=hops&type=beer')
+    .then(response => response.json());
+  const githubUser = fetch('https://api.github.com/users/leandrodalmasso')
+    .then(response => response.json());
+
+  Promise.all([beers, githubUser])
+    .then(jsons => { console.log(jsons) })
+    .catch(error => { console.log(error.message) })
+
+  Promise.race([beers, githubUser])
+    .then(json => { console.log(json) })
+    .catch(error => { console.log(error.message) })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Default function parameters</title>
+</head>
+<body>
+<main>
+  <div class="square" id="square"></div>
+  <button id="colorButton">Color</button>
+</main>
+<style>
+  .square {
+    border: 4px solid black;
+    height: 200px;
+    margin-bottom: 20px;
+    width: 200px;
+  }
+</style>
+<script>
+  // if no value or undefined is passed as an argument
+  function setBackgroundcolor(element, color = 'dodgerblue') {
+    element.style.backgroundColor = color;
+  }
+
+  const squareDiv = document.getElementById('square');
+  const colorButton = document.getElementById('colorButton');
+
+  colorButton.addEventListener(
+    'click',
+    () => setBackgroundcolor(squareDiv)
+  );
+</script>
+</body>
+</html>

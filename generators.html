@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generators</title>
+</head>
+<body>
+<script>
+  /*
+  generators: functions that can be paused and resumed
+  they return a generator object
+  when next() is called function executes until the next yield
+  */
+
+  function* listPeople() {
+    yield 'Harry Potter';
+    yield 'Mary Poppins';
+  }
+
+  const people = listPeople();
+  people.next() // {value: "Harry Potter", done: false}
+  people.next() // {value: "Mary Poppins", done: false}
+  people.next() // {value: undefined, done: true}
+  people.next() // {value: undefined, done: true}
+
+  function ajax(url) {
+    fetch(url)
+      .then(data => data.json())
+      // pass json to next to store it in the generator's variable
+      .then(json => dataGenerator.next(json));
+  }
+
+  function* calls() {
+    console.log('fetching beers');
+    const beers = yield ajax(
+      'http://api.react.beer/v2/search?q=hops&type=beer'
+    );
+    console.log(beers);
+
+    console.log('fetching leandro');
+    const leandro = yield ajax(
+      'https://api.github.com/users/leandrodalmasso'
+    );
+    console.log(leandro);
+  }
+
+  const dataGenerator = calls();
+  dataGenerator.next();
+</script>
+</body>
+</html>

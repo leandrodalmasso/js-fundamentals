@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>This</title>
+</head>
+<body>
+<main>
+  <div class="square" id="square"></div>
+  <div class="circle" id="circle"></div>
+</main>
+<style>
+  .circle {
+    background-color: crimson;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+  }
+    
+  .square {
+    background-color: dodgerblue;
+    cursor: pointer;
+    height: 200px;
+    margin-bottom: 20px;
+    width: 200px;
+  }
+</style>
+<script>
+  /*
+  global
+  */
+
+  console.log(this); // window
+
+  /*
+  function calls
+  */
+
+  function logThis() {
+    console.log(this);
+  }
+  logThis(); // window
+
+  function strictModeLogThis() {
+    'use strict'
+    console.log(this);
+  }
+  strictModeLogThis(); // undefined
+
+  /*
+  objects
+  */
+
+  let obj = {
+    logThis,
+  };
+  obj.logThis(); // obj
+
+  /*
+  dom elements
+  */
+
+  const square = document.getElementById('square');
+  square.addEventListener('click', logThis); // square
+
+  /*
+  explicit bindings
+  */
+
+  logThis.call(obj); // obj
+  logThis.bind(obj)(); // obj
+  logThis.apply(obj); // obj
+
+  /*
+  arrow
+  */
+
+  const arrowLogThis = () => console.log(this);
+
+  // objects
+  obj = {
+    arrowLogThis,
+  };
+  obj.arrowLogThis(); // window
+
+  // dom elements
+  const circle = document.getElementById('circle');
+  circle.addEventListener('click', arrowLogThis); // window
+</script>
+</body>
+</html>

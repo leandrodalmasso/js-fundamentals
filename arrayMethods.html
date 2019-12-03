@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array methods</title>
+</head>
+<body>
+<script>
+  let numbers = [4, 8, 15, 16, 23, 42];
+  const resetNumbersArray = () => { numbers = [4, 8, 15, 16, 23, 42] };
+
+  /*
+  push()
+  adds elements to the end and returns the new length
+  */
+
+  numbers.push(4);
+  numbers.push(4, 8);
+
+  /*
+  pop()
+  removes the last element and returns it
+  */
+
+  numbers.pop();
+
+  /*
+  unshift()
+  adds elements to the beginning and returns the new length
+  */
+
+  numbers.unshift(4);
+  numbers.unshift(4, 8);
+
+  /*
+  shift()
+  Removes the first element and returns it
+  */
+
+  numbers.shift();
+
+  /*
+  indexOf()
+  returns the first index at which a given element can be found
+  */
+
+  numbers.indexOf(4);
+
+  /*
+  lastIndexOf()
+  returns the last index at which a given element can be found
+  */
+
+  numbers.lastIndexOf(4);
+
+  /*
+  slice(firstIndexIncluded, lastIndexExcluded)
+  returns a new array that is a copy of a portion of the array
+  */
+
+  numbers.slice(1, 3);
+
+  /*
+  splice(firstIndexIncluded, deleteCount, itemsToAdd)
+  changes the content of an array removing and/or adding elements
+  */
+
+   numbers.splice(1, 3, 4, 8, 15);
+
+  /*
+  find()
+  returns the value of the first element that satisfies the provided testing function
+  */
+
+  const greaterThanFive = num => num > 5;
+  numbers.find(greaterThanFive);
+
+  /*
+  findIndex()
+  returns the index of the first element that satisfies the provided testing function
+  */
+
+  numbers.findIndex(greaterThanFive);  
+
+  /*
+  some()
+  tests if at least one element satisfies the provided testing function
+  */
+
+  numbers.some(greaterThanFive);  
+
+  /*
+  every()
+  test if all elements satisfy the provided testing function
+  */
+
+  const isPositive = num => num > 0;
+  numbers.every(isPositive);
+
+  /*
+  map()
+  creates a new array with the results of calling a provided function on every element
+  */
+
+  const timesTwo = num => num * 2;
+  const doubledNumbers = numbers.map(timesTwo);
+
+  /*
+  filter()
+  creates a new array with all elements that satisfy the provided testing function
+  */
+
+  const isEven = num => num % 2 === 0;
+  const evenNumbers = numbers.filter(isEven);
+
+  /*
+  forEach()
+  executes a provided function once for each array element
+  */
+
+  const logValue = num => console.log(num);
+  numbers.forEach(logValue);
+
+  /*
+  reduce(callback, initialResult)
+  executes a reducer function on each element resulting in a single output value
+  */
+
+  const addNumbers = (result, value) => (result + value);
+  const sum = numbers.reduce(addNumbers, 0);
+
+  /*
+  concat()
+  returns a new array that is a merge of two arrays
+  */
+
+  const letters = ['a', 'b', 'c'];
+  const numbersAndLetters = numbers.concat(letters);
+
+  /*
+  join()
+  returns string concatenating all of the elements, separated by commas or a specified separator
+  */
+  numbers.join();
+  numbers.join(' - ');
+</script>
+</body>
+</html>

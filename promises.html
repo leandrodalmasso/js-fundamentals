@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises</title>
+</head>
+<body>
+<script>
+  /*
+  We have:
+    - A 'producing code' that does something that takes time
+    - A 'consuming code' that wants the result of the 'producing code'
+
+  A promise links the 'producing code' and the 'consuming code'.
+
+  It can be resolved with a value or rejected with an error.
+
+  Consuming functions will receive the result or the error.
+  */
+
+  const promise = new Promise((resolve, reject) => (
+    setTimeout( 
+      () => resolve('done!'),
+      // () => reject(new Error('oops!')),
+      1000
+    )
+  ));
+
+  promise
+    .then(value => console.log(value))
+    .catch(error => console.log(error.message));
+</script>
+</body>
+</html>

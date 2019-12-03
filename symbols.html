@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+  const person = Symbol('Harry Potter');
+  const anotherPerson = Symbol('Harry Potter');
+  console.log(person === anotherPerson);
+
+  const students = {
+    [Symbol('harry')]: {
+      level: 'beginner',
+      city: 'rosario'
+    },
+    [Symbol('mary')]: {
+      level: 'intermediate',
+      city: 'bogota'
+    },
+    [Symbol('harry')]: {
+      level: 'advance',
+      city: 'salta'
+    },
+  };
+
+  const studentsSymbols = Object.getOwnPropertySymbols(students);
+  console.log(studentsSymbols);
+
+  const data = studentsSymbols.map(symbol => students[symbol]);
+  console.log(data);
+</script>
+</body>
+</html>

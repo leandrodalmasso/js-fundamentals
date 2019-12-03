@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiple promises with Async Await</title>
+</head>
+<body>
+<script>
+  async function fetchThings() {
+    const beers = fetch('http://api.react.beer/v2/search?q=hops&type=beer')
+      .then(response => response.json());
+    const githubUser = fetch('https://api.github.com/users/leandrodalmasso')
+      .then(response => response.json());
+    
+    const jsons = await Promise.all([beers, githubUser]);
+    console.log(jsons);
+  }
+
+  async function fetchFirstThing() {
+    const beers = fetch('http://api.react.beer/v2/search?q=hops&type=beer')
+      .then(response => response.json());
+    const githubUser = fetch('https://api.github.com/users/leandrodalmasso')
+      .then(response => response.json());
+    
+    const json = await Promise.race([beers, githubUser]);
+    console.log(json);
+  }
+
+  fetchThings();
+  fetchFirstThing();
+</script>
+</body>
+</html>

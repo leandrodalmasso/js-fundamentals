@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Functions</title>
+</head>
+<body>
+<button id="numbersButton">Numbers</button>
+<script>
+  // function declaration
+  function log(value) {
+    console.log(value);
+  }
+
+  // function expression
+  const logValue = function(value) {
+    console.log(value);
+  }
+
+  /*
+  arrow functions
+  - concise syntax
+  - implicit return
+  - don't have their own 'this'
+  */
+  const numbers = [4, 8, 15, 16, 23, 42];
+
+  const evenNumbers = numbers.filter(
+    number => number % 2 === 0
+  ).map(
+    number => '' + ` ${number}`
+  );
+
+  const numbersButton = document.getElementById('numbersButton');
+
+  numbersButton.addEventListener(
+    'click',
+    () => alert(evenNumbers)
+  );
+</script>
+</body>
+</html>

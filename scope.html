@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Scope</title>
+</head>
+<body>
+<script>
+  /*
+  global scope
+  */
+
+  var width = 100;
+  let height = 100;
+  const password = 'abc'
+
+  /*
+  function scope
+  */
+
+  function logWidth() {
+    var width = 200;
+
+    if (true) {
+      console.log(width);
+    }
+  }
+  
+  logWidth();
+
+  /*
+  block scope
+  */
+  
+  if (true) {
+    let height = 200;
+    const password = '123';
+
+    console.log(height);
+    console.log(password);
+  }
+
+  console.log(width);
+  console.log(height);
+  console.log(password);
+</script>
+</body>
+</html>

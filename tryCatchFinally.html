@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Try catch finally</title>
+</head>
+<body>
+<script>
+  try {
+    consol.log('hi');
+  } catch (error) {
+    const msg = `${error.name}: ${error.message}`;
+    console.log(msg);
+  }
+
+  /*
+  produce custom actions when an error occurs
+  */
+
+  try {
+    consol.log('hi');
+  } catch (error) {
+    console.log('Sorry, something went wrong.');
+  }
+
+  /*
+  throw an error
+  */
+
+  try {
+    throw new Error('Yeah... Sorry');
+    // throw new SyntaxError('Yeah... Sorry');
+    // throw new TypeError('Yeah... Sorry');
+  }
+  catch(error) {
+    const msg = `${error.name}: ${error.message}`;
+    console.log(msg);
+  }
+
+  /*
+  finally
+  */
+
+  try {
+    function returnEight() {
+      return 9;
+    }
+
+    const eight = returnEight();
+
+    if (eight !== 8){
+      throw new Error('Oops, something went wrong');
+    } else {
+      console.log(eight);
+    }
+  }
+  catch(error) {
+    console.log(error.message);
+  }
+  finally {
+    console.log('Thanks for playing!');
+  }
+</script>
+</body>
+</html>

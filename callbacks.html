@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Callbacks</title>
+</head>
+<body>
+<script>
+  function sayHi() {
+    console.log('hi!');
+  }
+
+  function doTwice(callback) {
+    callback();
+    callback();
+  }
+
+  doTwice(sayHi);
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template literals</title>
+</head>
+<body>
+</body>
+<script>
+  const posts = [{
+    user: 'Harry Potter',
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
+  },{
+    user: 'Mary Poppins',
+    text: 'Earum, dolor beatae aut impedit error nesciunt sapiente facilis sunt.'
+  }];
+
+  const markup = `
+    <div>
+      ${posts.map(post => `
+        <div>
+          <h2>${post.user}</h2>
+          <p>${post.text}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  document.body.innerHTML = markup;
+</script>
+</html>

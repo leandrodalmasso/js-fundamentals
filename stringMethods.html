@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String methods</title>
+</head>
+<body>
+<script>
+  const code = 'ARG-2018-A'
+  
+  console.log(code.startsWith('ARG')); // true
+  console.log(code.startsWith('2018', 4)); // true
+
+  console.log(code.endsWith('A')); // true
+  console.log(code.endsWith('2018', 8)); // true
+
+  console.log(code.includes('2018')); // true
+
+  console.log(code.repeat(2)) // ARG-2018-AARG-2018-A
+</script>
+</body>
+</html>

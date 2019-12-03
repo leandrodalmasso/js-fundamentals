@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maps and weakmaps</title>
+</head>
+<body>
+<script>
+  /*
+  map
+  UNIQUE key-value pairs of any type
+  remembers the original insertion order of the keys
+  it's easy to get the size
+  */
+
+  const dogs = new Map();
+
+  // set
+  dogs.set('Pachu', 16);
+  dogs.set('Ciro', 3);
+  dogs.set('Snoopy', 69);
+
+  // has
+  dogs.has('Pachu');
+
+  // get
+  dogs.get('Pachu');
+
+  // size
+  dogs.size;
+
+  // delete
+  dogs.delete('Snoopy')
+
+  // loop
+  dogs.forEach((value, key) => { console.log(value, key) });
+
+  for (const [key, value] of dogs) {
+    console.log(key, value);
+  }
+
+  /*
+  weakmap
+  the keys must be obj and the values can be arbitrary
+  doesn't have size property
+  it's not iterable
+  can't clear()
+  if an obj is deleted in the code, it is automatically removed from the weakmap
+  */
+
+  let dog1 = { name: 'Snickers', age: 3 };
+  let dog2 = { name: 'Sunny', age: 1 };
+
+  const strong = new Map();
+  const weak = new WeakMap();
+
+  strong.set(dog1, 'Snickers is the best!');
+  weak.set(dog2, 'Sunny is the 2nd best!')
+
+  dog1 = null;
+  dog2 = null;
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises chaining</title>
+</head>
+<body>
+  <script>
+  /*
+  A call to promise.then returns a promise, so we can chain another .then on it.
+
+  When a value is returned, it becomes the result of that promise.
+
+  When a promise rejects, the control jumps to the closest rejection handler down the chain.
+  */
+
+  const posts = [
+    {author: 'Harry Potter', id: 0, title: 'I like magic'},
+    {author: 'Mary Poppins', id: 1, title: 'I like umbrellas'},
+    {author: 'Guest', id: 2, title: 'I like JS'},
+  ];
+
+  const authors = [
+    {name: 'Harry Potter', twitter: '@harrypotter'},
+    {name: 'Mary Poppins', twitter: '@marypoppins'},
+  ];
+
+  const getPostById = (id) => new Promise((resolve, reject) => {
+    const post = posts.find(post => post.id === id);
+
+    if (post) {
+      resolve(post);
+    } else {
+      reject(Error('No post was found...'));
+    }
+  });
+
+  const hydrateAuthor = (post) => new Promise((resolve, reject) => {
+    const authorDetails = authors.find(author => author.name === post.author);
+
+    if (authorDetails) {
+      post.author = authorDetails;
+      resolve(post);
+    } else {
+      reject(Error('No author was found...'));
+    }
+  });
+
+  getPostById(10)
+    .then(post => {
+      console.log(post);
+      return hydrateAuthor(post);
+    })
+    .then(post => { console.log(post) })
+    .catch(error => console.log(error.message));
+</script>
+</body>
+</html>

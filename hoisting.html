@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hoisting</title>
+</head>
+<body>
+<script>
+  /*
+  variable declarations
+  */
+
+  console.log(width); // undefined
+  var width = 200;
+
+  try {
+    console.log(height);
+    let height = 100;
+  } catch (error) {
+    const msg = `${error.name}: ${error.message}`
+    console.log(msg); // ReferenceError: height is not defined
+  }
+
+  try {
+    console.log(password);
+    const password = 'abc'
+  } catch (error) {
+    const msg = `${error.name}: ${error.message}`
+    console.log(msg); // ReferenceError: password is not defined
+  }
+
+  /*
+  function declaration
+  */
+
+  console.log(logIn('abc')); // Welcome!
+
+  function logIn(password) {
+    if (password === 'abc') {
+      return 'Welcome!'
+    }
+
+    return 'Oops, something went wrong.';
+  }
+
+  /*
+  function expression
+  */
+  
+  try {
+    log('hi!');
+  } catch (error) {
+    const msg = `${error.name}: ${error.message}`
+    console.log(msg); // ReferenceError: log is not defined
+  }
+  
+  const log = function(value) {
+    console.log(value);
+  }
+</script>
+</body>
+</html>

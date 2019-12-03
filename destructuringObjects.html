@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring objects</title>
+</head>
+<body>
+<script>
+  const user = {
+    id: 234,
+    username: 'harrypotter',
+    posts: [{
+      id: 0,
+      title: 'I like magic'
+    }, {
+      id: 1,
+      title: 'Gryffindor is cool'
+    }]
+  }
+
+  const {
+    id,
+    username,
+    posts = [],
+    data: userData = {},
+  } = user;
+</script>
+</body>
+</html>

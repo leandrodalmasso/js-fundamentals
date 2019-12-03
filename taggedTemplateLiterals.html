@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tagged template literals</title>
+</head>
+<body>
+<script>
+  const name = 'Ciro';
+  const age = 2;
+  const sentence = highlight`My dog's name is ${name} and he has ${age} years old.`;
+
+  function highlight(strings, ...values) {
+    let str = '';
+
+    strings.forEach((string, i) => (
+      str += `${string}${values[i] ? ` <strong>${values[i]}</strong>` : ''}`
+    ));
+
+    return str;
+  }
+
+  document.body.innerHTML = `<p>${sentence}</p>`;
+</script>
+</body>
+</html>

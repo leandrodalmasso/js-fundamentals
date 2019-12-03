@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loops</title>
+</head>
+<body>
+<script>
+  let i = 0;
+
+  while (i <= 4) {
+    console.log(i);
+    i++;
+  }
+
+  do {
+    console.log(i);
+  } while (i < 4);
+
+  for (i; i >= 0; i--) {
+    console.log(i);
+  }
+
+  /*
+  for iterables (arrays, strings, maps and sets)
+  */
+
+  const numbers = [4, 8, 15, 16, 23, 42];
+
+  for (const number of numbers) {
+    console.log(number);
+  }
+
+  const beatles = ['John', 'George', 'Paul', 'Ringo'];
+
+  /*
+  for objects
+  */
+
+  let person = {
+    admin: false,
+    age: 30,
+    firstName: 'John',
+    lastName: 'Doe',
+  };
+
+  for (const prop in person) {
+    console.log(person[prop]);
+  }
+</script>
+</body>
+</html>

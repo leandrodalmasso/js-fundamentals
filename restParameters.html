@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rest parameters</title>
+</head>
+<body>
+<script>
+  // packs multiple elements into a single array
+
+  function sumAll(...numbers) {
+    return numbers.reduce(
+      (prev, current) => prev + current
+    );
+  }
+
+  console.log(sumAll(4, 8, 15, 16, 23, 42)); // 108
+</script>
+</body>
+</html>

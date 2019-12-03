@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proxies</title>
+</head>
+<body>
+<script>
+  /*
+  allow to overwrite an obj's default operations
+  Proxy(target, handler = { traps })
+  */
+
+  const person = {
+    name: 'Harry',
+    age: 30
+  };
+
+  const personProxy = new Proxy(person, {
+    get(target, name) {
+      return target[name].toUpperCase();
+    },
+    set() {
+      console.log('Sorry, you can\'t change the value');
+    }
+  });
+</script>
+</body>
+</html>

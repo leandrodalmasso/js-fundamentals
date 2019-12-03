@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Objects</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Mary Poppins',
+    age: 40
+  };
+
+  /*
+  dot notation
+  */
+
+  person.name;
+  person.age = 41;
+  person.admin = true;
+  delete person.admin;
+
+  /*
+  bracket notation
+  */
+
+  person['name'];
+  person['age'] = 41;
+  person['admin'] = true;
+  delete person['admin'];
+
+  /*
+  property shorthand
+  */
+
+  const name = 'Harry Potter';
+  const age = 30;
+
+  const anotherPerson = {
+    name,
+    age
+  };
+
+  /*
+  computed property names
+  */
+  
+  const suffix = 'Name';
+
+  const yetAnotherPerson = {
+    [`first${suffix}`]: 'Bruce',
+    [`last${suffix}`]: 'Wayne'
+  };
+
+  /*
+  Object.keys()
+  */
+
+  function getObjectKeys(object) {
+    return Object.keys(object);
+  }
+</script>
+</body>
+</html>

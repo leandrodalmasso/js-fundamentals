@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sets and weaksets</title>
+</head>
+<body>
+<script>
+  /*
+  sets
+  UNIQUE array with a nice api to manage items
+  */
+
+  const people = new Set(['Tom Petty', 'George Harrison']);
+
+  // has
+  people.has('Tom Petty');
+
+  // add
+  people.add('John Lennon');
+
+  // delete
+  people.delete('John Lennon');
+
+  // size
+  people.size;
+
+  // iterators
+  people.values();
+  people.keys();
+  people.entries();
+
+  for (const value of people) {
+    console.log(value);
+  }
+
+  // clear
+  people.clear();
+
+  /*
+  weaksets
+  can only contain objs
+  doesn't have size property
+  it's not iterable
+  can't clear()
+  if an obj is deleted in the code, it is automatically removed from the weakset
+  */
+
+  let dog1 = { name: 'Snickers', age: 3 };
+  let dog2 = { name: 'Sunny', age: 1 };
+
+  const strong = new Set();
+  const weak = new WeakSet();
+
+  strong.add(dog1);
+  weak.add(dog2);
+
+  dog1 = null;
+  dog2 = null;
+</script>
+</body>
+</html>
