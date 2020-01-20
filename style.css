@@ -1,0 +1,8 @@
+body {
+  background: linear-gradient(110deg, #f9bd3d, #d96947);
+}
+
+h1 {
+  border-bottom: 5px solid rgba(0, 153, 255, 0.774);
+  font-family: Arial, Helvetica, sans-serif;
+}
