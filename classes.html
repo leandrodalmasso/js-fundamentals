@@ -43,13 +43,13 @@
 
       function Dog(name, energy) {
         Animal.call(this, name, energy);
-
-        this.bark = function () {
-          console.log(`Bark! My name is ${this.name}`);
-        };
       }
 
       Dog.prototype = Object.create(Animal.prototype);
+
+      Dog.prototype.bark = function () {
+        console.log(`Bark! My name is ${this.name}`);
+      };
 
       const ciro = new Dog("Ciro", 10);
       console.log(ciro.energy);
